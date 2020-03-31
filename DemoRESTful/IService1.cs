@@ -20,6 +20,13 @@ namespace DemoRESTful
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
         // TODO: Add your service operations here
+
+        [OperationContract]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
+
+                BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetCustomers")]
+
+        List<Customer> GetCustomerList();
     }
 
 
@@ -43,5 +50,30 @@ namespace DemoRESTful
             get { return stringValue; }
             set { stringValue = value; }
         }
+    }
+
+    [DataContract(Namespace = "")]
+
+    public class Customer
+
+    {
+
+        [DataMember]
+
+        public Int32 CustomerID { get; set; }
+
+        [DataMember]
+
+        public string FirstName { get; set; }
+
+
+        [DataMember]
+
+        public string LastName { get; set; }
+
+        [DataMember]
+
+        public String Address { get; set; }
+
     }
 }
