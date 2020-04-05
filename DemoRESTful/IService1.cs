@@ -12,20 +12,21 @@ namespace DemoRESTful
     [ServiceContract]
     public interface IService1
     {
-
         [OperationContract]
         string GetData(int value);
+
 
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
-        // TODO: Add your service operations here
 
         [OperationContract]
-        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
-
-                BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetCustomers")]
-
+        [WebInvoke(
+            Method = "GET",
+            ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            UriTemplate = "GetCustomers"
+        )]
         List<Customer> GetCustomerList();
     }
 
